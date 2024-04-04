@@ -32,6 +32,9 @@ PRODUCT_PACKAGES += \
     FrameworkResOverlayDenniz \
     SettingsProviderOverlayDenniz
 
+DEVICE_PACKAGE_OVERLAYS += \
+    $(DEVICE_PATH)/overlay-evolution
+
 # Oplus camera
 $(call inherit-product, device/oplus/camera/camera.mk)
 
