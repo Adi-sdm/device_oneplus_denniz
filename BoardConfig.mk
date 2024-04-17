@@ -42,5 +42,8 @@ TARGET_RECOVERY_DEVICE_MODULES ?= init_denniz
 # Vibrator
 TARGET_VIBRATOR_ALT_SEQ_TYPE := true
 
+# Permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
 # Call proprietary blob setup
 include vendor/oplus/denniz/BoardConfigVendor.mk
