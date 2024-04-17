@@ -8,6 +8,8 @@
 #include <libinit_utils.h>
 #include "vendor_init.h"
 
+#include <sys/stat.h>
+
 void vendor_load_properties() {
     if (access("/system/bin/recovery", F_OK) == 0) {
         property_override("ro.adb.secure", "0");
@@ -15,4 +17,9 @@ void vendor_load_properties() {
         property_override("ro.adb.secure.recovery", "0");
         property_override("persist.sys.usb.config", "adb");
     }
+
+    // Safetynet bypass Inspired in magisk
+    // source code, by topjohnwu
+    chmod("/sys/fs/selinux/enforce", 0640);
+    chmod("/sys/fs/selinux/policy", 0440);
 }
